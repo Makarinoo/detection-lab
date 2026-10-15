@@ -1,0 +1,17 @@
+# Systeme / editeurs
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+
+# Datasets EVTX telecharges localement (trop lourds, recuperes par la CI)
+datasets/
+
+# Binaires d'outils (chainsaw, etc.)
+bin/
+
+# Python
+__pycache__/
+.venv/

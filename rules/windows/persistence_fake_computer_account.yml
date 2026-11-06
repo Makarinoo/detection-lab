@@ -1,0 +1,22 @@
+title: 'Create Account: Domain Account'
+id: a260159a-022f-40c0-921a-a44d68ba94d9
+status: experimental
+description: Détecte la creation d'un compte de domaine (ID 4720).
+references:
+    - https://attack.mitre.org/techniques/T1136/002/
+author: Makarin0
+date: 2026-11-06
+tags:
+    - attack.persistence
+    - attack.t1136.002
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4720
+        TargetUserName|endswith: '$'
+    condition: selection
+falsepositives:
+    - création légitime d'un utilisateur par l'équipe IT 
+level: high

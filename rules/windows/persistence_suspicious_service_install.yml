@@ -1,0 +1,27 @@
+title: 'Installation d''un service avec un chemin non standard'
+id: 26dc5438-a1cc-4ebd-a6f1-b0a73ec88295
+status: experimental
+description:  « modication d'un processus » → installation d'un service (7045) dont le binaire n'a pas de chemin standard (cmd.exe, %COMSPEC%…), typique d'une exécution à distance façon PsExec..
+references:
+    - https://attack.mitre.org/techniques/T1543/003/
+author: Makarin0
+date: 2026-11-06
+tags:
+    - attack.persistence
+    - attack.t1543.003
+logsource:
+    product: windows
+detection:
+    selection:
+        EventID: 7045
+        Provider_Name: 'Service Control Manager'
+    filter:
+        ImagePath|startswith:
+            - 'C:\'
+            - '%SystemRoot%'
+            - '\'
+            - '"C:\'
+    condition: selection and not filter
+falsepositives:
+    -  Logiciel légitime installant un service avec un chemin relatif 
+level: high

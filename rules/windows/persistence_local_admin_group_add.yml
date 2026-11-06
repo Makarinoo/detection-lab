@@ -1,0 +1,23 @@
+title: 'Account Manipulation: Additional Local or Domain Groups'
+id: 71196fe1-875a-4487-8d75-e6f38a5dbfde
+status: experimental
+description: Détecte la montée en privilège d'un utilisateur local (ID 4732).
+references:
+    - https://attack.mitre.org/techniques/T1098/007/
+author: Makarin0
+date: 2026-11-06
+tags:
+    - attack.persistence
+    - attack.privilege_escalation
+    - attack.t1098.007
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4732
+        TargetSid: 'S-1-5-32-544'
+    condition: selection
+falsepositives:
+    - Ajout légitime d'un admnistrateur par l'équipe IT 
+level: high

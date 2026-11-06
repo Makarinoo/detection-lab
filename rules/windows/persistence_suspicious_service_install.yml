@@ -1,7 +1,7 @@
 title: 'Installation d''un service avec un chemin non standard'
 id: 26dc5438-a1cc-4ebd-a6f1-b0a73ec88295
 status: experimental
-description:  « modication d'un processus » → installation d'un service (7045) dont le binaire n'a pas de chemin standard (cmd.exe, %COMSPEC%…), typique d'une exécution à distance façon PsExec..
+description: description: Détecte l'installation d'un service (7045) dont le binaire n'a pas de chemin standard (cmd.exe, %COMSPEC%), typique d'une exécution à distance façon PsExec. 
 references:
     - https://attack.mitre.org/techniques/T1543/003/
 author: Makarin0

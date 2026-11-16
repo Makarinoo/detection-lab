@@ -1,0 +1,25 @@
+title: "Detection Pass-the-Hash T1550.002"
+id: 37b6f98b-f6cb-496b-a228-095760d59ac3
+status: experimental
+description: "Detection d'un Pass the hash à l'aide de la commande mimikatz sekurlsa::pth"
+references:
+    - https://attack.mitre.org/techniques/T1550/002/
+author: Makarin0
+date: 2026-11-13
+tags:
+    - attack.lateral_movement
+    - attack.defense_evasion
+    - attack.t1550.002
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4624
+        LogonType: 9
+        AuthenticationPackageName: Negotiate
+        LogonProcessName: seclogo
+    condition: selection
+falsepositives:
+    - admin qui lance runas /netonly
+level: high
